@@ -46,7 +46,7 @@
         <header class="main-header">
             <h1>Painel Completo</h1>
         </header>
-        <section id="dashboard" class="section">
+        <section id="dashboard" class="section visible">
             <h2>Dashboard</h2>
             <div class="icon-sequence">
                 <div class="icon-card">
@@ -82,8 +82,12 @@
         </section>
         <section id="generators" class="section hidden">
             <h2>Geradores</h2>
-            <p>Esta é a página de Geradores.</p>
-            <!-- Adicione o conteúdo específico para a página de Geradores aqui -->
+            <p>Esta é a página de Geradores. Aqui você pode gerar dados fictícios de pessoas.</p>
+            <div class="generator-option">
+                <i class="fa-solid fa-user-plus"></i>
+                <button onclick="generatePerson()">Gerar Pessoa</button>
+                <div id="generated-person" class="generated-info"></div>
+            </div>
         </section>
         <section id="settings" class="section hidden">
             <h2>Configurações do Site</h2>

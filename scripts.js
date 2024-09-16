@@ -57,38 +57,24 @@ document.addEventListener('DOMContentLoaded', () => {
         return null;
     }
 
-    window.toggleSidebar = function() {
-        document.querySelector('.sidebar').classList.toggle('closed');
-        document.querySelector('.main-content').classList.toggle('sidebar-closed');
+    // Função para gerar uma pessoa fictícia
+    window.generatePerson = function() {
+        const person = {
+            name: faker.name.findName(),
+            email: faker.internet.email(),
+            phone: faker.phone.phoneNumber()
+        };
+
+        const generatedInfo = document.getElementById('generated-person');
+        generatedInfo.innerHTML = `
+            <p><strong>Nome:</strong> ${person.name}</p>
+            <p><strong>Email:</strong> ${person.email}</p>
+            <p><strong>Telefone:</strong> ${person.phone}</p>
+        `;
     };
 
-    window.showSection = function(sectionId) {
-        document.querySelectorAll('.section').forEach(section => {
-            section.classList.remove('visible');
-        });
-        document.getElementById(sectionId).classList.add('visible');
-    };
-
-    window.changeProfilePic = function() {
-        document.getElementById('profile-pic-input').click();
-    };
-
-    window.updateProfilePic = function() {
-        const input = document.getElementById('profile-pic-input');
-        if (input.files && input.files[0]) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                document.querySelector('.profile-pic').src = e.target.result;
-            };
-            reader.readAsDataURL(input.files[0]);
-        }
-    };
-
-    window.editProfile = function() {
-        const formElements = document.querySelectorAll('#profile-form input');
-        formElements.forEach(input => {
-            input.removeAttribute('readonly');
-        });
-        document.querySelector('#profile-form button').textContent = 'Salvar Perfil';
-    };
+    // Importar a biblioteca Faker.js para geração de dados fictícios
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/faker@5.5.3/dist/faker.min.js';
+    document.head.appendChild(script);
 });
