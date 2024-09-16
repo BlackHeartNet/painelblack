@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const profileName = document.getElementById('username');
+    const profileName = document.getElementById('profile-name');
     const savedName = getCookie('username');
     if (savedName) {
         profileName.textContent = savedName;
@@ -16,14 +16,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 section.classList.remove('visible');
             });
 
-            const target = link.getAttribute('href').substring(1);
+            const target = link.getAttribute('data-target');
             document.getElementById(target).classList.add('visible');
         });
     });
 
-    document.querySelector('.hamburger').addEventListener('click', () => {
-        document.querySelector('.sidebar').classList.toggle('closed');
-        document.querySelector('.main-content').classList.toggle('sidebar-closed');
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.querySelector('.sidebar');
+    const mainContent = document.querySelector('.main-content');
+
+    hamburger.addEventListener('click', () => {
+        sidebar.classList.toggle('closed');
+        mainContent.classList.toggle('sidebar-closed');
+        sidebar.style.opacity = '1'; /* Garante que a barra lateral esteja visível */
+        sidebar.style.visibility = 'visible'; /* Garante que a barra lateral esteja visível */
+    });
+
+    sidebar.addEventListener('mouseover', () => {
+        sidebar.style.opacity = '1'; /* Garante que a barra lateral esteja visível */
+        sidebar.style.visibility = 'visible'; /* Garante que a barra lateral esteja visível */
+    });
+
+    sidebar.addEventListener('mouseout', () => {
+        if (!sidebar.classList.contains('closed')) {
+            sidebar.style.opacity = '0'; /* Torna a barra lateral invisível */
+            sidebar.style.visibility = 'hidden'; /* Torna a barra lateral invisível */
+        }
     });
 
     const profileForm = document.getElementById('profile-form');
@@ -56,25 +74,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         return null;
     }
-
-    // Função para gerar uma pessoa fictícia
-    window.generatePerson = function() {
-        const person = {
-            name: faker.name.findName(),
-            email: faker.internet.email(),
-            phone: faker.phone.phoneNumber()
-        };
-
-        const generatedInfo = document.getElementById('generated-person');
-        generatedInfo.innerHTML = `
-            <p><strong>Nome:</strong> ${person.name}</p>
-            <p><strong>Email:</strong> ${person.email}</p>
-            <p><strong>Telefone:</strong> ${person.phone}</p>
-        `;
-    };
-
-    // Importar a biblioteca Faker.js para geração de dados fictícios
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/faker@5.5.3/dist/faker.min.js';
-    document.head.appendChild(script);
 });
