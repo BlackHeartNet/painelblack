@@ -35,6 +35,12 @@ body {
     visibility: hidden; /* Inicialmente escondido */
 }
 
+/* Exibir a barra lateral quando o mouse estiver sobre o botão hamburger */
+.sidebar.show {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* Ocultar a barra lateral inicialmente */
 .sidebar.closed {
     width: 0;

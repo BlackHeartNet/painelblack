@@ -21,27 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const hamburger = document.querySelector('.hamburger');
-    const sidebar = document.querySelector('.sidebar');
-    const mainContent = document.querySelector('.main-content');
-
-    hamburger.addEventListener('click', () => {
-        sidebar.classList.toggle('closed');
-        mainContent.classList.toggle('sidebar-closed');
-        sidebar.style.opacity = '1'; /* Garante que a barra lateral esteja visível */
-        sidebar.style.visibility = 'visible'; /* Garante que a barra lateral esteja visível */
-    });
-
-    sidebar.addEventListener('mouseover', () => {
-        sidebar.style.opacity = '1'; /* Garante que a barra lateral esteja visível */
-        sidebar.style.visibility = 'visible'; /* Garante que a barra lateral esteja visível */
-    });
-
-    sidebar.addEventListener('mouseout', () => {
-        if (!sidebar.classList.contains('closed')) {
-            sidebar.style.opacity = '0'; /* Torna a barra lateral invisível */
-            sidebar.style.visibility = 'hidden'; /* Torna a barra lateral invisível */
-        }
+    document.querySelector('.hamburger').addEventListener('click', () => {
+        document.querySelector('.sidebar').classList.toggle('closed');
+        document.querySelector('.main-content').classList.toggle('sidebar-closed');
     });
 
     const profileForm = document.getElementById('profile-form');
@@ -74,4 +56,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         return null;
     }
+
+    // Mostrar a barra lateral quando o mouse está sobre o botão hamburger
+    const sidebar = document.querySelector('.sidebar');
+    const hamburger = document.querySelector('.hamburger');
+
+    hamburger.addEventListener('mouseover', () => {
+        sidebar.classList.add('show');
+    });
+
+    sidebar.addEventListener('mouseover', () => {
+        sidebar.classList.add('show');
+    });
+
+    sidebar.addEventListener('mouseout', () => {
+        sidebar.classList.remove('show');
+    });
 });
