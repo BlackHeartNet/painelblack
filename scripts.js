@@ -21,11 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    document.querySelector('.hamburger').addEventListener('click', () => {
-        document.querySelector('.sidebar').classList.toggle('closed');
-        document.querySelector('.main-content').classList.toggle('sidebar-closed');
-    });
-
     const profileForm = document.getElementById('profile-form');
     if (profileForm) {
         profileForm.addEventListener('submit', (e) => {
