@@ -1,77 +1,24 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel Lateral</title>
-    <link rel="stylesheet" href="styles.css">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button class="hamburger">&#9776;</button>
-    <div class="sidebar">
-        <div class="profile-container">
-            <div class="profile-pic-container">
-                <img src="profile-pic.jpg" alt="Foto de perfil" class="profile-pic">
-            </div>
-            <div class="profile-info" id="profile-name">Nome do Usuário</div>
-        </div>
-        <a href="#" data-target="dashboard">
-            <i class="fas fa-tachometer-alt"></i>
-            Dashboard
-        </a>
-        <a href="#" data-target="profile">
-            <i class="fas fa-user"></i>
-            Perfil
-        </a>
-        <a href="#" data-target="settings">
-            <i class="fas fa-cogs"></i>
-            Configurações
-        </a>
-        <a href="#" data-target="generators">
-            <i class="fas fa-cogs"></i>
-            Geradores
-        </a>
-        <a href="#" id="logout">
-            <i class="fas fa-sign-out-alt"></i>
-            Sair
-        </a>
-    </div>
-    <div class="main-content">
-        <div class="main-header">
-            <h1>Bem-vindo ao Painel</h1>
-        </div>
-        <div id="dashboard" class="section visible">
-            <div class="icon-sequence">
-                <div class="icon-card">
-                    <i class="fas fa-cogs"></i>
-                    <p>Geradores</p>
-                </div>
-                <!-- Adicione mais ícones aqui -->
-            </div>
-        </div>
-        <div id="profile" class="section">
-            <h2>Perfil</h2>
-            <form id="profile-form">
-                <label for="username">Nome de Usuário:</label>
-                <input type="text" id="username" name="username">
-                <button type="submit">Salvar</button>
-            </form>
-        </div>
-        <div id="settings" class="section">
-            <h2>Configurações</h2>
-            <p>Configurações gerais aqui.</p>
-        </div>
-        <div id="generators" class="section">
-            <h2>Geradores</h2>
-            <div class="icon-sequence">
-                <div class="icon-card">
-                    <i class="fas fa-user-plus"></i>
-                    <p>Gerar Pessoas</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="script.js"></script>
+  <div class="container">
+    <h1>Login</h1>
+    <form>
+      <div class="input-group">
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,70 +1,16 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const profileName = document.getElementById('profile-name');
-    const savedName = getCookie('username');
-    if (savedName) {
-        profileName.textContent = savedName;
-    }
+// Adicione validações e lógica de login aqui
+const form = document.querySelector('form');
 
-    const sidebarLinks = document.querySelectorAll('.sidebar a');
-    const sections = document.querySelectorAll('.section');
-    
-    sidebarLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            
-            sections.forEach(section => {
-                section.classList.remove('visible');
-            });
+form.addEventListener('submit', (event) => {
+  event.preventDefault(); // Previne o envio padrão do formulário
 
-            const target = link.getAttribute('data-target');
-            document.getElementById(target).classList.add('visible');
-        });
-    });
+  // Obtenha os valores do usuário e senha
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
 
-    const profileForm = document.getElementById('profile-form');
-    if (profileForm) {
-        profileForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const username = document.getElementById('username').value;
-            setCookie('username', username, 365);
-            profileName.textContent = username;
-        });
-    }
+  // Faça a validação e o login aqui
+  // ...
 
-    function setCookie(name, value, days) {
-        let expires = '';
-        if (days) {
-            const date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            expires = `; expires=${date.toUTCString()}`;
-        }
-        document.cookie = `${name}=${value || ''}${expires}; path=/`;
-    }
-
-    function getCookie(name) {
-        const nameEQ = `${name}=`;
-        const ca = document.cookie.split(';');
-        for (let i = 0; i < ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-        }
-        return null;
-    }
-
-    // Mostrar a barra lateral quando o mouse está sobre o botão hamburger
-    const sidebar = document.querySelector('.sidebar');
-    const hamburger = document.querySelector('.hamburger');
-
-    hamburger.addEventListener('mouseover', () => {
-        sidebar.classList.add('show');
-    });
-
-    sidebar.addEventListener('mouseover', () => {
-        sidebar.classList.add('show');
-    });
-
-    sidebar.addEventListener('mouseout', () => {
-        sidebar.classList.remove('show');
-    });
+  // Se o login for bem-sucedido, redirecione para outra página
+  // window.location.href = '/dashboard';
 });

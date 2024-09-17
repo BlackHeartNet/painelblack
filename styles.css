@@ -1,214 +1,65 @@
-/* Estilos básicos para o layout */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    padding: 0;
+  background-color: #181818; /* Tema escuro fosco */
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
 }
 
-/* Estilos para o botão hamburger */
-.hamburger {
-    font-size: 30px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    color: white;
-    padding: 10px;
-    position: fixed; /* Fixo ao lado esquerdo da tela */
-    top: 10px;
-    left: 10px;
-    z-index: 1000; /* Garante que o botão esteja sobre a barra lateral e o conteúdo */
-    transition: left 0.3s; /* Suaviza a transição quando a barra lateral abre e fecha */
+.container {
+  background-color: rgba(0, 0, 0, 0.8); /* Opacidade para o fundo */
+  padding: 30px;
+  border-radius: 5px;
+  text-align: center;
 }
 
-/* Painel lateral */
-.sidebar {
-    height: 100%;
-    width: 250px;
-    position: fixed; /* Fixo ao lado esquerdo da tela */
-    top: 0;
-    left: 0;
-    background-color: #111;
-    padding-top: 60px; /* Espaço suficiente para o botão hamburger */
-    transition: 0.3s;
-    overflow: hidden;
-    opacity: 0; /* Inicialmente invisível */
-    visibility: hidden; /* Inicialmente escondido */
+h1 {
+  color: #fff;
+  margin-bottom: 20px;
 }
 
-/* Exibir a barra lateral quando o mouse estiver sobre o botão hamburger */
-.sidebar.show {
+.input-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  outline: none;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50; /* Verde */
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Animações (opcional) */
+.container {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
     opacity: 1;
-    visibility: visible;
-}
-
-/* Ocultar a barra lateral inicialmente */
-.sidebar.closed {
-    width: 0;
-    padding: 0;
-}
-
-/* Estilo da foto do perfil e nome do usuário */
-.profile-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.profile-pic-container {
-    position: relative;
-    margin-bottom: 10px;
-}
-
-.profile-section-pic {
-    margin-bottom: 20px;
-}
-
-/* Foto de perfil no painel lateral */
-.profile-pic {
-    width: 100px; /* Ajuste o tamanho conforme necessário */
-    height: 100px;
-    border-radius: 50%; /* Faz a imagem ficar circular */
-    object-fit: cover; /* Ajusta a imagem para preencher o círculo */
-    border: 3px solid #ffffff; /* Borda branca ao redor da imagem */
-    cursor: pointer; /* Indica que a imagem pode ser clicada */
-}
-
-/* Nome do usuário */
-.profile-info {
-    color: white;
-    font-weight: bold;
-}
-
-/* Estilo dos links da barra lateral */
-.sidebar a {
-    padding: 15px 8px 15px 16px;
-    text-decoration: none;
-    font-size: 18px;
-    color: white;
-    display: flex;
-    align-items: center; /* Alinhar ícone e texto verticalmente */
-    gap: 10px; /* Espaço entre ícone e texto */
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.sidebar a:hover {
-    background-color: #575757; /* Muda a cor de fundo ao passar o mouse */
-    transform: scale(1.05); /* Aumenta o tamanho do ícone e texto ao passar o mouse */
-}
-
-/* Adicionar estilos para ícones */
-.sidebar a i {
-    font-size: 20px; /* Ajustar o tamanho do ícone conforme necessário */
-    transition: color 0.3s, transform 0.3s; /* Transição suave para a cor e tamanho do ícone */
-}
-
-.sidebar a:hover i {
-    color: #ffcc00; /* Muda a cor do ícone ao passar o mouse */
-    transform: scale(1.2); /* Aumenta o tamanho do ícone ao passar o mouse */
-}
-
-/* Conteúdo principal */
-.main-content {
-    margin-left: 260px; /* Largura do painel lateral */
-    padding: 20px;
-    transition: margin-left 0.3s;
-    position: relative;
-}
-
-/* Ajustar margem quando a barra lateral estiver oculta */
-.main-content.sidebar-closed {
-    margin-left: 20px;
-}
-
-/* Header principal */
-.main-header {
-    background-color: #333333; /* Escuro para o cabeçalho */
-    color: white;
-    text-align: center;
-    padding: 10px 20px; /* Ajustado para garantir que o conteúdo não seja sobreposto */
-    margin-top: 60px; /* Espaço suficiente para o botão hamburger */
-}
-
-/* Tema escuro */
-body.dark-theme {
-    background-color: #2e2e2e; /* Preto fosco */
-    color: #ffffff;
-}
-
-/* Estilo das seções */
-.section {
-    display: none; /* Oculta todas as seções por padrão */
-}
-
-.section.visible {
-    display: block; /* Exibe a seção visível */
-}
-
-/* Estilo do formulário de perfil */
-#profile-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-#profile-form label {
-    color: #ffffff;
-}
-
-#profile-form input {
-    padding: 8px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    background-color: #333333;
-    color: #ffffff;
-}
-
-#profile-form button {
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #555555;
-    color: #ffffff;
-    cursor: pointer;
-}
-
-#profile-form button:hover {
-    background-color: #777777;
-}
-
-/* Estilos para a sequência de ícones no dashboard */
-.icon-sequence {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.icon-card {
-    background-color: #333;
-    color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    width: 120px; /* Ajuste o tamanho conforme necessário */
-    height: 120px; /* Ajuste o tamanho conforme necessário */
-    transition: background-color 0.3s, transform 0.3s; /* Transição suave para a cor de fundo e transformação */
-}
-
-.icon-card:hover {
-    background-color: #444; /* Muda a cor de fundo ao passar o mouse */
-    transform: scale(1.05); /* Aumenta o tamanho do ícone ao passar o mouse */
-}
-
-.icon-card i {
-    font-size: 40px; /* Ajuste o tamanho do ícone conforme necessário */
-    margin-bottom: 10px;
-    transition: color 0.3s; /* Transição suave para a cor do ícone */
-}
-
-.icon-card:hover i {
-    color: #ffcc00; /* Muda a cor do ícone ao passar o mouse */
-}
-
-.icon-card p {
-    margin: 0;
+  }
 }
