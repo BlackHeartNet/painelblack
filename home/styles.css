@@ -17,6 +17,7 @@ body {
 .dashboard-container {
   display: flex;
   height: 100vh;
+  overflow: hidden; /* Evita rolagem indesejada */
 }
 
 .sidebar {
@@ -67,6 +68,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .welcome-message {
@@ -78,6 +80,7 @@ body {
   color: #1db954;
 }
 
+/* Botão de alternância */
 .toggle-sidebar {
   position: fixed;
   top: 20px;
@@ -93,4 +96,48 @@ body {
 
 .toggle-sidebar:hover {
   background: #1db954;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .dashboard-main {
+    margin-left: 0; /* No mobile, a barra lateral será sobreposta */
+    padding: 10px;
+  }
+
+  .toggle-sidebar {
+    top: 10px;
+    left: 10px;
+  }
+
+  .welcome-message h1 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 100%;
+    height: 100%;
+    left: -100%; /* Oculta fora da tela */
+    z-index: 1;
+  }
+
+  .dashboard-main {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .toggle-sidebar {
+    top: 10px;
+    left: 10px;
+  }
+
+  .welcome-message h1 {
+    font-size: 24px;
+  }
 }
