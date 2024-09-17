@@ -1,5 +1,5 @@
 body {
-  background-color: #181818; /* Tema escuro fosco */
+  background-color: #000; /* Preto */
   font-family: sans-serif;
   display: flex;
   justify-content: center;
@@ -9,9 +9,6 @@ body {
 }
 
 .container {
-  background-color: rgba(0, 0, 0, 0.8); /* Opacidade para o fundo */
-  padding: 30px;
-  border-radius: 5px;
   text-align: center;
 }
 
@@ -32,7 +29,7 @@ label {
 
 input[type="text"],
 input[type="password"] {
-  width: 100%;
+  width: 300px; /* Ajuste o tamanho conforme necessário */
   padding: 10px;
   border: none;
   border-radius: 3px;
@@ -48,18 +45,4 @@ button[type="submit"] {
   border: none;
   border-radius: 3px;
   cursor: pointer;
-}
-
-/* Animações (opcional) */
-.container {
-  animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
