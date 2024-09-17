@@ -7,79 +7,90 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   background-color: #0d0d0d;
   color: #fff;
-  overflow: hidden;
-  position: relative;
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
 }
 
-.home-container {
-  perspective: 1000px; /* Adiciona perspectiva para efeitos 3D */
-  position: relative;
+.dashboard-container {
+  display: flex;
+  height: 100vh;
 }
 
-.home-box {
-  width: 600px;
-  padding: 40px;
-  background-color: #1c1c1c;
-  border-radius: 15px;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
-  transform: rotateY(0deg); /* Início sem rotação */
-  transition: transform 0.6s ease-in-out;
-  text-align: center;
+.sidebar {
+  width: 250px;
+  background: #1c1c1c;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  height: 100%;
+  left: -250px; /* Inicialmente oculto fora da tela */
+  transition: left 0.3s ease;
 }
 
-.home-box:hover {
-  transform: rotateY(10deg); /* Gira um pouco quando o mouse passa */
-}
-
-h2 {
+.sidebar h1 {
   margin-bottom: 20px;
-  font-size: 28px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  font-size: 24px;
+  color: #1db954;
 }
 
-p {
-  margin-bottom: 30px;
-  font-size: 18px;
+.sidebar-nav ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-.button-box {
+.sidebar-nav li {
+  margin-bottom: 15px;
+}
+
+.sidebar-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.sidebar-nav a:hover {
+  background: #1db954;
+}
+
+.dashboard-main {
+  margin-left: 0; /* Inicialmente sem margem */
+  padding: 20px;
+  flex: 1;
+  background: #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-message {
   text-align: center;
 }
 
-.button-box .button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #1db954;
+.welcome-message h1 {
+  font-size: 36px;
+  color: #1db954;
+}
+
+.toggle-sidebar {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #1c1c1c;
   color: #fff;
-  font-size: 18px;
-  border-radius: 25px;
-  text-decoration: none;
-  transition: 0.3s ease;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
-.button-box .button:hover {
-  background-color: #14833b; /* Cor mais escura no hover */
-}
-
-/* Animação de fundo */
-@keyframes backgroundMove {
-  0% { background-position: 0 0; }
-  100% { background-position: 100% 100%; }
-}
-
-body::before {
-  content: '';
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, #1c1c1c, #2a2a2a, #1db954, #1c1c1c);
-  z-index: -1;
-  animation: backgroundMove 10s infinite;
+.toggle-sidebar:hover {
+  background: #1db954;
 }

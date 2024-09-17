@@ -3,18 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Page</title>
+  <title>Dashboard</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="home-container">
-    <div class="home-box">
-      <h2>Welcome to Black Heart Panel</h2>
-      <p>Your 3D styled home page with animations.</p>
-      <div class="button-box">
-        <a href="login.html" class="button">Logout</a>
+  <div class="dashboard-container">
+    <aside class="sidebar" id="sidebar">
+      <h1>Black Heart Panel</h1>
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="#profile">Profile</a></li>
+          <li><a href="#settings">Settings</a></li>
+          <li><a href="#reports">Reports</a></li>
+          <li><a href="#logout">Logout</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="dashboard-main">
+      <button class="toggle-sidebar" id="toggleSidebar">☰</button>
+      <div class="welcome-message">
+        <h1>Bem-vindo ao painel BLACKHEART</h1>
       </div>
-    </div>
+    </main>
   </div>
   <script src="scripts.js"></script>
 </body>
