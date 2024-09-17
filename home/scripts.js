@@ -1,9 +1,19 @@
-// Alterna a visibilidade da barra lateral
-document.getElementById('toggleSidebar').addEventListener('click', function () {
+document.addEventListener('DOMContentLoaded', function () {
+  // Manipulador do botão de alternância da barra lateral
+  const toggleSidebar = document.getElementById('toggleSidebar');
   const sidebar = document.getElementById('sidebar');
-  const sidebarPosition = sidebar.style.left === '0px' ? '-250px' : '0px';
-  sidebar.style.left = sidebarPosition;
-  
-  // Ajusta a margem do conteúdo principal
-  document.querySelector('.dashboard-main').style.marginLeft = sidebarPosition === '0px' ? '250px' : '0px';
+
+  toggleSidebar.addEventListener('click', function () {
+    if (sidebar.style.left === '0px') {
+      sidebar.style.left = '-250px';
+    } else {
+      sidebar.style.left = '0px';
+    }
+  });
+
+  // Manipulador do botão de logout
+  const logoutButton = document.getElementById('logout');
+  logoutButton.addEventListener('click', function () {
+    window.location.href = 'painel/index.html'; // Redireciona para a página de login
+  });
 });
