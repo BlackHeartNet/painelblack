@@ -14,14 +14,16 @@ body {
   background-color: #0d0d0d;
   color: #fff;
   overflow: hidden;
+  position: relative;
 }
 
-.login-container {
+.home-container {
   perspective: 1000px; /* Adiciona perspectiva para efeitos 3D */
+  position: relative;
 }
 
-.login-box {
-  width: 400px;
+.home-box {
+  width: 600px;
   padding: 40px;
   background-color: #1c1c1c;
   border-radius: 15px;
@@ -31,89 +33,38 @@ body {
   text-align: center;
 }
 
-.login-box:hover {
+.home-box:hover {
   transform: rotateY(10deg); /* Gira um pouco quando o mouse passa */
 }
 
 h2 {
-  margin-bottom: 30px;
-  font-size: 24px;
+  margin-bottom: 20px;
+  font-size: 28px;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
-.input-box {
-  position: relative;
+p {
   margin-bottom: 30px;
-}
-
-.input-box input {
-  width: 100%;
-  padding: 10px 40px; /* Ajuste para o espaçamento do ícone */
-  background: transparent;
-  border: none;
-  outline: none;
-  color: #fff;
-  font-size: 18px;
-  border-bottom: 2px solid #fff;
-  transition: all 0.3s ease;
-}
-
-.input-box label {
-  position: absolute;
-  top: 50%;
-  left: 40px; /* Ajuste para o espaçamento do ícone */
-  color: #fff;
-  pointer-events: none;
-  transition: 0.5s;
-  transform: translateY(-50%);
-}
-
-.input-box input:focus ~ label,
-.input-box input:valid ~ label {
-  top: -10px;
-  left: 40px;
-  color: #1db954; /* Cor verde moderna */
-  font-size: 14px;
-}
-
-.input-box .icon {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #fff;
   font-size: 18px;
 }
 
-.input-box .toggle-password {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #fff;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-/* Botão */
 .button-box {
   text-align: center;
 }
 
-.button-box button {
-  width: 100%;
-  padding: 10px;
+.button-box .button {
+  display: inline-block;
+  padding: 10px 20px;
   background-color: #1db954;
-  border: none;
   color: #fff;
   font-size: 18px;
   border-radius: 25px;
-  cursor: pointer;
+  text-decoration: none;
   transition: 0.3s ease;
 }
 
-.button-box button:hover {
+.button-box .button:hover {
   background-color: #14833b; /* Cor mais escura no hover */
 }
 
